@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Property Search Input Form</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    /* Custom color palette */
+    :root {
+      --primary-color: #4f46e5; /* Indigo-600 */
+      --primary-color-light: #6366f1; /* Indigo-500 */
+      --secondary-color: #10b981; /* Emerald-500 */
+      --input-bg: #f9fafb; /* Gray-50 */
+      --input-border: #d1d5db; /* Gray-300 */
+      --input-border-focus: var(--primary-color);
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, #eef2ff 0%, #f0fdfa 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 1.5rem;
+    }
+    .form-container {
+      background: white;
+      border-radius: 1rem;
+      box-shadow: 0 10px 25px rgba(79, 70, 229, 0.15);
+      max-width: 480px;
+      width: 100%;
+      padding: 2.5rem 2rem;
+      transition: box-shadow 0.3s ease;
+    }
+    .form-container:hover {
+      box-shadow: 0 15px 35px rgba(79, 70, 229, 0.3);
+    }
+    label {
+      font-weight: 600;
+      color: #374151; /* Gray-700 */
+    }
+    input, select {
+      background-color: var(--input-bg);
+      border: 1.5px solid var(--input-border);
+      border-radius: 0.5rem;
+      padding: 0.5rem 0.75rem;
+      font-size: 1rem;
+      color: #111827; /* Gray-900 */
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+      width: 100%;
+    }
+    input:focus, select:focus {
+      outline: none;
+      border-color: var(--input-border-focus);
+      box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.3);
+      background-color: white;
+    }
+    .input-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--primary-color-light);
+      pointer-events: none;
+    }
+    .input-wrapper {
+      position: relative;
+      width: 100%;
+    }
+    button {
+      background-color: var(--primary-color);
+      color: white;
+      font-weight: 600;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.75rem;
+      width: 100%;
+      font-size: 1.125rem;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      border: none;
+      margin-top: 1.5rem;
+      box-shadow: 0 5px 15px rgba(79, 70, 229, 0.3);
+    }
+    button:hover {
+      background-color: var(--primary-color-light);
+      box-shadow: 0 8px 25px rgba(79, 70, 229, 0.5);
+    }
+  </style>
+</head>
+<body>
+  <form class="form-container" aria-label="Property Search Form">
+    <h1 class="text-2xl font-semibold mb-6 text-gray-800 text-center">Property Search</h1>
+
+    <div class="mb-5">
+      <label for="propertyId" class="block mb-1">Property ID</label>
+      <div class="input-wrapper">
+        <i class="fas fa-id-badge input-icon"></i>
+        <input type="text" id="propertyId" name="propertyId" placeholder="Enter Property ID" autocomplete="off" />
+      </div>
+    </div>
+
+    <div class="mb-5">
+      <label for="ownerName" class="block mb-1">Owner's Name</label>
+      <div class="input-wrapper">
+        <i class="fas fa-user input-icon"></i>
+        <input type="text" id="ownerName" name="ownerName" placeholder="Enter Owner's Name" autocomplete="off" />
+      </div>
+    </div>
+
+    <fieldset class="mb-5 border border-gray-300 rounded-lg p-4">
+      <legend class="font-semibold text-gray-700 mb-3">Address</legend>
+      <div class="mb-4">
+        <label for="street" class="block mb-1">Street</label>
+        <input type="text" id="street" name="street" placeholder="Street Address" autocomplete="off" />
+      </div>
+      <div class="mb-4">
+        <label for="city" class="block mb-1">City / Village</label>
+        <input type="text" id="city" name="city" placeholder="City or Village" autocomplete="off" />
+      </div>
+      <div class="mb-4">
+        <label for="state" class="block mb-1">State / District</label>
+        <input type="text" id="state" name="state" placeholder="State or District" autocomplete="off" />
+      </div>
+      <div>
+        <label for="postalCode" class="block mb-1">Postal Code</label>
+        <input type="text" id="postalCode" name="postalCode" placeholder="Postal Code" autocomplete="off" />
+      </div>
+    </fieldset>
+
+    <div class="mb-5">
+      <label for="registrationNumber" class="block mb-1">Registration Number</label>
+      <div class="input-wrapper">
+        <i class="fas fa-file-signature input-icon"></i>
+        <input type="text" id="registrationNumber" name="registrationNumber" placeholder="Enter Registration Number" autocomplete="off" />
+      </div>
+    </div>
+
+    <button type="submit" aria-label="Search Properties">Search</button>
+  </form>
+</body>
+</html>
